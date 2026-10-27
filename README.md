@@ -122,8 +122,8 @@ cuando el equipo confirme el conjunto exacto utilizado.
 ## 7. Estructura del repositorio
 
 ``` text
-Aqui_estoy/
-├── backend/
+aqui_estoy/
+├── backend/                  # raíz de ejecución de la API
 │   ├── database/
 │   │   └── conexion.py
 │   ├── models/
@@ -133,20 +133,23 @@ Aqui_estoy/
 │   │   └── usuarios.py
 │   ├── schema/
 │   │   └── usuario.py
-│   ├── .env                  # local; no publicar
-│   ├── .gitignore
 │   ├── main.py
 │   └── probar_conexion.py
 ├── db/
 │   ├── aqui_estoy.sql
 │   └── aqui_estoy_diagrama.mwb
+├── docs/
 ├── frontend/
 │   ├── index.html
 │   ├── inicio_sesion.html
 │   ├── nuevo_usuario.html
 │   ├── recuperar_contraseña.html
-│   ├── css/
+│   ├── styles/
 │   └── img/
+├── .env                      # local; no publicar
+├── .env.example
+├── .gitignore
+├── requirements.txt
 └── README.md
 ```
 
@@ -204,10 +207,10 @@ sistema sin revisar primero la configuración. Puedes usar directamente
 
 ### 9.3 Instalar dependencias
 
-Si existe `requirements.txt`:
+Con el entorno virtual activo:
 
 ``` powershell
-python -m pip install -r requirements.txt
+python -m pip install -r ../requirements.txt
 ```
 
 Si no existe, confirma las dependencias utilizadas por los imports y
@@ -218,7 +221,7 @@ necesarios.
 
 ### 9.4 Variables de entorno
 
-Crea `backend/.env` localmente con las variables que lee
+Crea `.env` en la raíz del proyecto (junto a `.env.example`) con las variables que lee
 `database/conexion.py`:
 
 ``` dotenv

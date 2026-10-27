@@ -1,14 +1,15 @@
-.env
-__pycache__/
+# Entorno virtual y caché de Python
 .venv/
-
-# Dependencias
-node_modules/
+__pycache__/
+*.pyc
 
 # Secretos y configuración local
 .env
 .env.*
 !.env.example
+
+# Dependencias de Node
+node_modules/
 
 # Registros
 *.log
