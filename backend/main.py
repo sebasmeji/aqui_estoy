@@ -9,4 +9,4 @@ app.include_router(usuarios_router)
 
 @app.get("/")
 def inicio():
-    return {"mensaje": "API AquiEstoy funcionando"}
+    return {"mensaje": "API AquiEstoy funcionando correctamente"}
