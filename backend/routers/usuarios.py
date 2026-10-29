@@ -18,7 +18,12 @@ from models.operaciones import (
 router = APIRouter(prefix="/usuarios", tags=["Usuarios"])
 
 
-# CREAR USUARIO 
+# CREAR USUARIO
+@router.post(
+    "/",
+    response_model=UsuarioRespuesta,
+    status_code=status.HTTP_201_CREATED
+)
 def registrar_usuario(
     datos: UsuarioCrear,
     db: Session = Depends(obtener_db)

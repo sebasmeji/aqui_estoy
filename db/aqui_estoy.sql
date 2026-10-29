@@ -17,6 +17,7 @@ CREATE TABLE usuarios (
     documento_identidad VARCHAR(20) NULL,
     telefono VARCHAR(20) NULL,
     correo VARCHAR(150) NOT NULL,
+    contrasena_hash VARCHAR(255) NULL,
     estado ENUM(
         'activo',
         'inactivo',

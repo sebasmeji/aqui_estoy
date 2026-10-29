@@ -1,4 +1,3 @@
-
 from pydantic import BaseModel, ConfigDict, EmailStr, Field
 from typing import Literal
 
@@ -9,6 +8,9 @@ Parentesco = Literal["madre", "padre", "hijo", "hija", "abuela", "abuelo", "otro
 
 
 class UsuarioCrear(BaseModel):
+    # Elimina espacios al inicio y al final (evita nombres de solo espacios)
+    model_config = ConfigDict(str_strip_whitespace=True)
+
     nombres: str = Field(min_length=1, max_length=80)
     apellidos: str = Field(min_length=1, max_length=80)
     tipo_documento: TipoDocumento | None = None
