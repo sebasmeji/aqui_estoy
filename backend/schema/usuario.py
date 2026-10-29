@@ -5,7 +5,7 @@ from typing import Literal
 
 TipoDocumento = Literal["CC", "TI", "CE", "PASAPORTE", "OTRO"]
 EstadoUsuario = Literal["activo", "inactivo", "bloqueado"]
-Parentesco = Literal["madre", "padre", "hijo", "abuela", "otro"]
+Parentesco = Literal["madre", "padre", "hijo", "hija", "abuela", "abuelo", "otro"]
 
 
 class UsuarioCrear(BaseModel):
@@ -15,7 +15,13 @@ class UsuarioCrear(BaseModel):
     documento_identidad: str | None = Field(default=None, max_length=20)
     telefono: str | None = Field(default=None, max_length=20)
     correo: EmailStr
+    contrasena: str = Field(min_length=8, max_length=128)
     parentesco: Parentesco | None = None
+
+
+class UsuarioLogin(BaseModel):
+    correo: EmailStr
+    contrasena: str = Field(min_length=1, max_length=128)
 
 
 class UsuarioActualizar(BaseModel):

@@ -1,0 +1,11 @@
+.mensaje {
+    color: #c0392b;
+    font-size: 14px;
+    text-align: center;
+    margin: 0 0 12px;
+    min-height: 1em;
+}
+
+.mensaje.ok {
+    color: #2e7d32;
+}

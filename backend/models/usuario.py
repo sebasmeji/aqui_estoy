@@ -41,6 +41,11 @@ class Usuario(Base):
         unique=True
     )
 
+    contrasena_hash: Mapped[str | None] = mapped_column(
+        String(255),
+        nullable=True
+    )
+
     estado: Mapped[str] = mapped_column(
         Enum("activo", "inactivo", "bloqueado"),
         nullable=False,
@@ -48,6 +53,6 @@ class Usuario(Base):
     )
 
     parentesco: Mapped[str | None] = mapped_column(
-        Enum("madre", "padre", "hijo", "abuela", "otro"),
+        Enum("madre", "padre", "hijo", "hija", "abuela", "abuelo", "otro"),
         nullable=True
     )

@@ -7,11 +7,9 @@ from models.usuario import Usuario
 
 def crear_usuario(db: Session, datos: dict):
     usuario = Usuario(**datos)
-
     db.add(usuario)
     db.commit()
     db.refresh(usuario)
-
     return usuario
 
 
@@ -25,13 +23,16 @@ def consultar_usuario(db: Session, usuario_id: int):
     return db.scalar(consulta)
 
 
+def consultar_usuario_por_correo(db: Session, correo: str):
+    consulta = select(Usuario).where(Usuario.correo == correo)
+    return db.scalar(consulta)
+
+
 def actualizar_usuario(db: Session, usuario: Usuario, cambios: dict):
     for campo, valor in cambios.items():
         setattr(usuario, campo, valor)
-
     db.commit()
     db.refresh(usuario)
-
     return usuario
 
 

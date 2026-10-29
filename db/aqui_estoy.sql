@@ -26,7 +26,9 @@ CREATE TABLE usuarios (
         'madre',
         'padre',
         'hijo',
+        'hija',
         'abuela',
+        'abuelo',
         'otro'
     ) NULL,
     PRIMARY KEY (id),
